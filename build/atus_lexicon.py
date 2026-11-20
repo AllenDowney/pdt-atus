@@ -100,3 +100,62 @@ def notes(bbox_path):
             code = min(codes, key=lambda c: abs(c[0] - middle))[1]
             out[code] = (out.get(code, "") + " " + " ".join(t for _, t in g)).strip()
     return out
+
+
+# ---------------------------------------------------------------- single-year lexicons (XLS)
+
+def single_year(xls, interim):
+    """[(code, label)] from a single-year lexicon (lexiconwexYYYY.xls), in BLS's order.
+
+    The .xls is converted with LibreOffice (`soffice --headless --convert-to csv`, every sheet)
+    into `interim`; the lexicon sheet has one row per 6-digit code (code, label) followed by its
+    example rows."""
+    import csv
+    import subprocess
+    interim = Path(interim)
+    stem = Path(xls).stem
+    sheets = sorted(interim.glob(f"{stem}-*.csv"))
+    if not sheets:
+        interim.mkdir(parents=True, exist_ok=True)
+        subprocess.run(["soffice", "--headless", "--convert-to",
+                        "csv:Text - txt - csv (StarCalc):44,34,76,1,,0,false,true,false,false,false,-1",
+                        "--outdir", str(interim), str(xls)], check=True, capture_output=True)
+        sheets = sorted(interim.glob(f"{stem}-*.csv"))
+    out = []
+    for sheet in sheets:
+        for row in csv.reader(open(sheet, encoding="utf-8", errors="replace")):
+            if len(row) > 1 and re.fullmatch(r"\d{6}", row[0].strip()) and row[1].strip():
+                out.append((row[0].strip(), " ".join(row[1].split())))
+    return out
+
+
+# ---------------------------------------------------------------- includes, from the Notes column
+
+INCLUDE = re.compile(r"((?:\d{6}\s*(?:,|\+|and)?\s*)+)\(([^)]*)\)")
+
+
+def years_of(text, first, last):
+    """'2003-2004' -> (2003, 2004); '2008 and later years' -> (2008, last); 'all years' -> (first, last);
+    '2003, 2004' -> (2003, 2004); '2003' -> (2003, 2003). None if it isn't one of these."""
+    t = text.strip().lower()
+    if t == "all years":
+        return first, last
+    m = re.fullmatch(r"(\d{4}) and later years", t)
+    if m:
+        return int(m.group(1)), last
+    years = [int(y) for y in re.findall(r"\d{4}", t)]
+    if years and re.fullmatch(r"[\d\s,\-–]+", t):
+        return min(years), max(years)
+    return None
+
+
+def includes(note, first, last):
+    """[(code, (from, to))] from a note like 'includes 020601 (all years), 020602 (2008 and later years)'
+    or 'Includes 171001, 171002, 171003 (2003-2004); 181001 (2005 and later years)'."""
+    out = []
+    for codes, years in INCLUDE.findall(note or ""):
+        span = years_of(years, first, last)
+        if span is None:
+            continue
+        out += [(c, span) for c in re.findall(r"\d{6}", codes)]
+    return out

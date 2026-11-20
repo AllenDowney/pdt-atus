@@ -1,6 +1,6 @@
 {
  "pdt_version": "0.1.0",
- "inputs_sha256": "953d76814e1e8785e7a163c43d2af410bf6f784866e6815558ec1634746113e8",
+ "inputs_sha256": "dd7f943f92d0674b8ff9d7c7670bc5b1e557c54dbeddeb9f0eb2015dc4e26c3f",
  "dataset": "atus",
  "spec": "0.1.0",
  "files": [
@@ -13,7 +13,7 @@
    "variables": 641,
    "untyped": 6,
    "availability": 14501,
-   "provenance_fields": 4046,
+   "provenance_fields": 4477,
    "open_ranges": 593,
    "missing_codes": 195,
    "numeric_code_labels": 21,

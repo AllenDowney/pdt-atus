@@ -24,9 +24,11 @@ Where each field comes from (STANDARD.md §3):
   6-digit codes, second-tier and first-tier codes, labels, and its Notes column (read by
   position: build/atus_lexicon.py); tier 50, "Data Codes", typed missing by rule atus_data_codes
 - the summary file's activity columns t010101 ... t509989: rule atus_summary_from_lexicon,
-  one record per lexicon code, with the code in extensions.atus.activity_code
+  one record per lexicon code, naming it in code_of
 - the replicate weights TUFNWGTP001 ... TUFNWGTP160: rule atus_replicate_weights, from the
   zip's Repl0325_info.txt
+- single-year code lists (atus-lexicon-2003 ... -2025), from lexiconwexYYYY.xls via LibreOffice;
+  the multi-year list harmonizes them, and its codes' includes come from the lexicon's notes
 - groups (metadata/groups.jsonl): one per first-tier category, of the summary's activity columns
 """
 
@@ -145,7 +147,61 @@ def code_lists(spec):
         for v in cl["codes"]:
             if v["kind"] == "missing":
                 v["origin"] = dict(rule, note="Tier 50, Data Codes: activities that couldn't be coded.")
-    return lists, {c["code"]: c for c in codes}, tier1
+    singles, problems = single_year_lists(data_codes, rule)
+    six_list = lists[0]
+    six_list["harmonizes"] = [cl["id"] for cl in singles]
+    by_id = {cl["id"]: {c["code"] for c in cl["codes"]} for cl in singles}
+    for v in six_list["codes"]:
+        for code, (lo, hi) in atus_lexicon.includes(v["attributes"].get("note"), FIRST, LAST):
+            found = []
+            for cl in singles:
+                a_, b_ = cl["_span"]
+                if code in by_id[cl["id"]] and a_ <= hi and lo <= b_:
+                    found.append({"code_list": cl["id"], "code": code, "waves": {"from": max(lo, a_), "to": min(hi, b_)}})
+            if found:
+                v.setdefault("includes", []).extend(found)
+            else:
+                problems.append(f"- {v['code']}: its note includes {code} ({lo}-{hi}), which no single-year list of "
+                                "those years has")
+    for cl in singles:
+        del cl["_span"]
+    return lists + singles, {c["code"]: c for c in codes}, tier1, problems
+
+
+# Single-year lexicons in hand, and the years each applies to. lexiconchanges.pdf has crosswalks only
+# between 2003/04, 2004/05, 2006/07, 2007/08, 2012/13 and 2023/24, so the code set changes only in
+# those years: the 2005 list stands for 2005-2006, 2008 for 2008-2012, 2013 for 2013-2023, and 2025
+# for 2024-2025 (rule atus_lexicon_spans).
+FIRST, LAST = 2003, 2025
+SINGLE_YEARS = [("2003", 2003, 2003), ("2004", 2004, 2004), ("2005", 2005, 2006), ("2007", 2007, 2007),
+                ("2008", 2008, 2012), ("2013", 2013, 2023), ("2025", 2024, 2025)]
+
+
+def single_year_lists(data_codes, rule):
+    """One code list per single-year lexicon (lexiconwexYYYY.xls)."""
+    lists, problems = [], []
+    for year, lo, hi in SINGLE_YEARS:
+        rows = atus_lexicon.single_year(RAW / f"lexiconwex{year}.xls", INTERIM / "lexicons")
+        codes, seen = [], set()
+        for code, label in rows:
+            if code in seen:
+                problems.append(f"- lexiconwex{year}.xls: code {code} appears twice; the first is kept")
+                continue
+            seen.add(code)
+            v = {"code": code, "label": label, "kind": "valid"}
+            if code.startswith("50"):
+                v.update(kind="missing", missing_types=data_codes.get(code, ["unspecified"]), origin=rule)
+            codes.append(v)
+        span = f"{lo}" if lo == hi else f"{lo}-{hi}"
+        lists.append({"id": f"atus-lexicon-{year}", "label": f"ATUS {year} single-year coding lexicon",
+                      "description": f"BLS's lexicon for the {year} single-year files (lexiconwex{year}.xls), taken to "
+                                     f"apply to {span}: lexiconchanges.pdf has no crosswalk inside those years. Not "
+                                     "used by any variable here; the multi-year list harmonizes it.",
+                      "codes": codes, "origin": {"origin": "publisher", "source": f"atus-lexicon-{year}"},
+                      "_span": (lo, hi)})
+    return lists, problems
+
+
 
 
 # ---------------------------------------------------------------- data
@@ -303,9 +359,9 @@ def build_activity_column(code, lex, table, release, spec, tokens, years):
                        + (f" Lexicon note: {lex['note']}" if lex.get("note") else ""))
     record["availability"] = [{"wave": y, "n": n} for y, n in sorted(years.items())]
     record["source_location"] = {"source": LEXICON, "page": lex["page"], "anchor": code}
-    record["extensions"] = {"atus": {"activity_code": code, "activity_code_list": LISTS["codes"]}}
+    record["code_of"] = {"code_list": LISTS["codes"], "code": code}
     fields = {"label": {"origin": "publisher", "source": LEXICON}, "measure": rule, "variable_type": rule,
-              "units": rule, "notes": rule,
+              "units": rule, "notes": rule, "code_of": rule,
               "availability": {"origin": "data_file", "source": dat,
                                "note": "n counts values that aren't empty or -1, -2, -3 (however written, e.g. -1.000000)."}}
     if st:
@@ -365,7 +421,7 @@ def main():
     spec = yaml.safe_load((ROOT / "build" / "slice.yaml").read_text())
     release = spec["release"]
     docs = dictionaries()
-    lists, lex, tier1 = code_lists(spec)
+    lists, lex, tier1, lexicon_problems = code_lists(spec)
     by_id = {cl["id"]: cl for cl in lists}
     report, problems, total, groups = [], [], 0, []
     for table, t in spec["tables"].items():
@@ -416,6 +472,7 @@ def main():
              f"- Code lists: " + ", ".join(f"{cl['id']} ({len(cl['codes'])} codes)" for cl in lists),
              f"- Groups: {len(groups)}", ""] + report
     lines += ["## Codes in the data the records don't cover", ""] + (problems or ["None."])
+    lines += ["", "## Lexicon includes and single-year lists to look at", ""] + (lexicon_problems or ["None."])
     (ROOT / "build" / "report.md").write_text("\n".join(lines) + "\n")
     print(f"{total} records; see build/report.md")
 

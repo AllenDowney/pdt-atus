@@ -186,3 +186,78 @@ sources:
   sha256: 3d06f9f8285cd65325b7d460bb6021c27f31871926df5a6cd68988edebe7c90e
   bytes: 1111540
   note: 'Chapter 7: weights, linking variables and the replicate variance formula.'
+- id: atus-lexicon-2004
+  title: ATUS 2004 single-year coding lexicon, with examples (XLS)
+  kind: codebook
+  format: xls
+  url: https://www.bls.gov/tus/lexicons/lexiconwex2004.xls
+  path: data/raw/2003-2025/lexiconwex2004.xls
+  releases:
+  - 2003-2025
+  redistribution: unknown
+  acquisition: manual
+  manual_steps: In a browser, download it from https://www.bls.gov/tus/lexicons.htm into data/raw/2003-2025/. bls.gov
+    refuses scripts that don't identify a contact.
+  fetched_on: '2026-11-20'
+  sha256: 05f7f2b03ee58e0a7e83cacf8ec5a3e6651787ddc92e469bdd672cd2f0f21a42
+  bytes: 219136
+- id: atus-lexicon-2005
+  title: ATUS 2005 single-year coding lexicon, with examples (XLS)
+  kind: codebook
+  format: xls
+  url: https://www.bls.gov/tus/lexicons/lexiconwex2005.xls
+  path: data/raw/2003-2025/lexiconwex2005.xls
+  releases:
+  - 2003-2025
+  redistribution: unknown
+  acquisition: manual
+  manual_steps: In a browser, download it from https://www.bls.gov/tus/lexicons.htm into data/raw/2003-2025/. bls.gov
+    refuses scripts that don't identify a contact.
+  fetched_on: '2026-11-20'
+  sha256: e6aadc5ce1c4c4ebb46adf9f50c79fe83b5793afb65c8684ec161e368d0fda46
+  bytes: 243200
+- id: atus-lexicon-2007
+  title: ATUS 2007 single-year coding lexicon, with examples (XLS)
+  kind: codebook
+  format: xls
+  url: https://www.bls.gov/tus/lexicons/lexiconwex2007.xls
+  path: data/raw/2003-2025/lexiconwex2007.xls
+  releases:
+  - 2003-2025
+  redistribution: unknown
+  acquisition: manual
+  manual_steps: In a browser, download it from https://www.bls.gov/tus/lexicons.htm into data/raw/2003-2025/. bls.gov
+    refuses scripts that don't identify a contact.
+  fetched_on: '2026-11-20'
+  sha256: e943681e390d95af4a2cd0238a3278560273a750f17323e7dd3b20ee2723f4cc
+  bytes: 228864
+- id: atus-lexicon-2008
+  title: ATUS 2008 single-year coding lexicon, with examples (XLS)
+  kind: codebook
+  format: xls
+  url: https://www.bls.gov/tus/lexicons/lexiconwex2008.xls
+  path: data/raw/2003-2025/lexiconwex2008.xls
+  releases:
+  - 2003-2025
+  redistribution: unknown
+  acquisition: manual
+  manual_steps: In a browser, download it from https://www.bls.gov/tus/lexicons.htm into data/raw/2003-2025/. bls.gov
+    refuses scripts that don't identify a contact.
+  fetched_on: '2026-11-20'
+  sha256: 37f0ecd4583e75770061e9074927c21d1af19f4026a6c416eccc4d621bcc60bd
+  bytes: 296448
+- id: atus-lexicon-2013
+  title: ATUS 2013 single-year coding lexicon, with examples (XLS)
+  kind: codebook
+  format: xls
+  url: https://www.bls.gov/tus/lexicons/lexiconwex2013.xls
+  path: data/raw/2003-2025/lexiconwex2013.xls
+  releases:
+  - 2003-2025
+  redistribution: unknown
+  acquisition: manual
+  manual_steps: In a browser, download it from https://www.bls.gov/tus/lexicons.htm into data/raw/2003-2025/. bls.gov
+    refuses scripts that don't identify a contact.
+  fetched_on: '2026-11-20'
+  sha256: 96ff24d2c10ff223f931970685ee57b19b918b1c2b2d53899ca56d37eab596cf
+  bytes: 311296

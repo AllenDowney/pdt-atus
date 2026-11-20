@@ -52,6 +52,11 @@ releases:
   - atus-lexicon-changes
   - atus-lexicon-2003
   - atus-lexicon-2025
+  - atus-lexicon-2004
+  - atus-lexicon-2005
+  - atus-lexicon-2007
+  - atus-lexicon-2008
+  - atus-lexicon-2013
   - atus-users-guide
   tables:
   - id: respondent
@@ -62,24 +67,28 @@ releases:
     - TUCASEID
     design: &id001
       weights:
-      - TUFNWGTP
-      - TU20FWGT
+      - name: TUFNWGTP
+        waves: [2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2021, 2022, 2023, 2024, 2025]
+        note: The ATUS final weight, 2006 method; -1 in 2020.
+      - name: TU20FWGT
+        waves: [2020]
+        note: The 2020 weight; it also has values in 2019, for pooling 2019 and 2020 (dictionary).
       replicates:
+        table: replicates
+        key: [TUCASEID]
         prefix: TUFNWGTP
         n: 160
         method: fay
         fay_factor: 0.5
-        note: 'Replicate weights TUFNWGTP001-TUFNWGTP160 are in the table `replicates`, one row per respondent,
-          joined on TUCASEID; they''re the replicates of TUFNWGTP (Repl0325_info.txt). The User''s Guide (§7.5,
+        note: 'Replicate weights TUFNWGTP001-TUFNWGTP160, one row per respondent; they''re the replicates of TUFNWGTP (Repl0325_info.txt). The User''s Guide (§7.5,
           p. 44) calls the method "a modified balanced half-sample method of replication, developed in the 1980s
           by Robert Fay" and gives Var(Y0) = 4/160 * sum over i of (Yi - Y0)^2. The factor 0.5 is derived, not stated:
           for Fay''s method the multiplier is 1/(R(1-k)^2), and 4/R means k = 0.5. The file has no replicate weights
           for 2020 (every value is -1); the 2020 replicates are in BLS''s pandemic replicate weights file (2019-2020),
           not used here.'
       note: 'The weight is TUFNWGTP for every year except 2020, where it is -1; for 2020 use TU20FWGT (dictionary;
-        User''s Guide ch. 7). TU20FWGT has values only for 2019 and 2020. This can''t be stated per year in `design`:
-        the release covers all years, and design can''t vary by wave. Weights count person-days, not persons: the
-        sum of the weights for a quarter is the population times the days in the quarter (User''s Guide §7.1).'
+        User''s Guide ch. 7). Weights count person-days, not persons: the sum of the weights for a quarter is the
+        population times the days in the quarter (User''s Guide §7.1).'
   - id: summary
     label: 'Activity summary file: one record per respondent, with minutes on each activity code'
     sources:

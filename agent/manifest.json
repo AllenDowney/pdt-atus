@@ -1,6 +1,6 @@
 {
  "pdt_version": "0.1.0",
- "inputs_sha256": "953d76814e1e8785e7a163c43d2af410bf6f784866e6815558ec1634746113e8",
+ "inputs_sha256": "dd7f943f92d0674b8ff9d7c7670bc5b1e557c54dbeddeb9f0eb2015dc4e26c3f",
  "dataset": "atus",
  "max_tokens": 20000,
  "shards": [
@@ -61,38 +61,44 @@
     {
      "path": "shards/table/2003-2025-summary.part1.jsonl",
      "form": "jsonl",
-     "variables": 72,
-     "tokens": 19401
+     "variables": 71,
+     "tokens": 19363
     },
     {
      "path": "shards/table/2003-2025-summary.part2.jsonl",
      "form": "jsonl",
-     "variables": 78,
-     "tokens": 19355
+     "variables": 77,
+     "tokens": 19456
     },
     {
      "path": "shards/table/2003-2025-summary.part3.jsonl",
      "form": "jsonl",
-     "variables": 78,
-     "tokens": 19323
+     "variables": 77,
+     "tokens": 19421
     },
     {
      "path": "shards/table/2003-2025-summary.part4.jsonl",
      "form": "jsonl",
-     "variables": 79,
-     "tokens": 19463
+     "variables": 77,
+     "tokens": 19349
     },
     {
      "path": "shards/table/2003-2025-summary.part5.jsonl",
      "form": "jsonl",
-     "variables": 79,
-     "tokens": 19525
+     "variables": 77,
+     "tokens": 19300
     },
     {
      "path": "shards/table/2003-2025-summary.part6.jsonl",
      "form": "jsonl",
-     "variables": 70,
-     "tokens": 18577
+     "variables": 72,
+     "tokens": 19419
+    },
+    {
+     "path": "shards/table/2003-2025-summary.part7.jsonl",
+     "form": "jsonl",
+     "variables": 5,
+     "tokens": 1399
     },
     {
      "path": "shards/table/2003-2025-summary.part1.txt",
@@ -131,14 +137,20 @@
     {
      "path": "shards/table/2003-2025-activity.part1.jsonl",
      "form": "jsonl",
-     "variables": 4,
-     "tokens": 17249
+     "variables": 2,
+     "tokens": 476
     },
     {
      "path": "shards/table/2003-2025-activity.part2.jsonl",
      "form": "jsonl",
-     "variables": 5,
-     "tokens": 3894
+     "variables": 1,
+     "tokens": 32152
+    },
+    {
+     "path": "shards/table/2003-2025-activity.part3.jsonl",
+     "form": "jsonl",
+     "variables": 6,
+     "tokens": 4529
     },
     {
      "path": "shards/table/2003-2025-activity.txt",
@@ -211,7 +223,7 @@
      "path": "shards/subject/01-personal-care-activities.jsonl",
      "form": "jsonl",
      "variables": 12,
-     "tokens": 3024
+     "tokens": 3078
     },
     {
      "path": "shards/subject/01-personal-care-activities.txt",
@@ -244,7 +256,7 @@
      "path": "shards/subject/02-household-activities.jsonl",
      "form": "jsonl",
      "variables": 32,
-     "tokens": 7948
+     "tokens": 8092
     },
     {
      "path": "shards/subject/02-household-activities.txt",
@@ -277,7 +289,7 @@
      "path": "shards/subject/03-caring-for-helping-household-hh-members.jsonl",
      "form": "jsonl",
      "variables": 33,
-     "tokens": 8242
+     "tokens": 8390
     },
     {
      "path": "shards/subject/03-caring-for-helping-household-hh-members.txt",
@@ -310,7 +322,7 @@
      "path": "shards/subject/04-caring-for-helping-nonhousehold-nonhh-members.jsonl",
      "form": "jsonl",
      "variables": 37,
-     "tokens": 9277
+     "tokens": 9443
     },
     {
      "path": "shards/subject/04-caring-for-helping-nonhousehold-nonhh-members.txt",
@@ -343,7 +355,7 @@
      "path": "shards/subject/05-work-work-related-activities.jsonl",
      "form": "jsonl",
      "variables": 20,
-     "tokens": 5085
+     "tokens": 5175
     },
     {
      "path": "shards/subject/05-work-work-related-activities.txt",
@@ -376,7 +388,7 @@
      "path": "shards/subject/06-education.jsonl",
      "form": "jsonl",
      "variables": 18,
-     "tokens": 4578
+     "tokens": 4659
     },
     {
      "path": "shards/subject/06-education.txt",
@@ -409,7 +421,7 @@
      "path": "shards/subject/07-consumer-purchases.jsonl",
      "form": "jsonl",
      "variables": 11,
-     "tokens": 2801
+     "tokens": 2850
     },
     {
      "path": "shards/subject/07-consumer-purchases.txt",
@@ -442,7 +454,7 @@
      "path": "shards/subject/08-professional-personal-care-services.jsonl",
      "form": "jsonl",
      "variables": 26,
-     "tokens": 6516
+     "tokens": 6633
     },
     {
      "path": "shards/subject/08-professional-personal-care-services.txt",
@@ -475,7 +487,7 @@
      "path": "shards/subject/09-household-services.jsonl",
      "form": "jsonl",
      "variables": 18,
-     "tokens": 4549
+     "tokens": 4630
     },
     {
      "path": "shards/subject/09-household-services.txt",
@@ -508,7 +520,7 @@
      "path": "shards/subject/10-government-services-civic-obligations.jsonl",
      "form": "jsonl",
      "variables": 12,
-     "tokens": 3135
+     "tokens": 3189
     },
     {
      "path": "shards/subject/10-government-services-civic-obligations.txt",
@@ -541,7 +553,7 @@
      "path": "shards/subject/11-eating-and-drinking.jsonl",
      "form": "jsonl",
      "variables": 5,
-     "tokens": 1374
+     "tokens": 1397
     },
     {
      "path": "shards/subject/11-eating-and-drinking.txt",
@@ -574,7 +586,7 @@
      "path": "shards/subject/12-socializing-relaxing-and-leisure.jsonl",
      "form": "jsonl",
      "variables": 31,
-     "tokens": 7710
+     "tokens": 7849
     },
     {
      "path": "shards/subject/12-socializing-relaxing-and-leisure.txt",
@@ -607,7 +619,7 @@
      "path": "shards/subject/13-sports-exercise-recreation.jsonl",
      "form": "jsonl",
      "variables": 77,
-     "tokens": 18815
+     "tokens": 19162
     },
     {
      "path": "shards/subject/13-sports-exercise-recreation.txt",
@@ -640,7 +652,7 @@
      "path": "shards/subject/14-religious-and-spiritual-activities.jsonl",
      "form": "jsonl",
      "variables": 6,
-     "tokens": 1689
+     "tokens": 1716
     },
     {
      "path": "shards/subject/14-religious-and-spiritual-activities.txt",
@@ -673,7 +685,7 @@
      "path": "shards/subject/15-volunteer-activities.jsonl",
      "form": "jsonl",
      "variables": 24,
-     "tokens": 6063
+     "tokens": 6171
     },
     {
      "path": "shards/subject/15-volunteer-activities.txt",
@@ -706,7 +718,7 @@
      "path": "shards/subject/16-telephone-calls.jsonl",
      "form": "jsonl",
      "variables": 9,
-     "tokens": 2403
+     "tokens": 2444
     },
     {
      "path": "shards/subject/16-telephone-calls.txt",
@@ -739,7 +751,7 @@
      "path": "shards/subject/18-traveling.jsonl",
      "form": "jsonl",
      "variables": 53,
-     "tokens": 14288
+     "tokens": 14527
     },
     {
      "path": "shards/subject/18-traveling.txt",
@@ -772,7 +784,7 @@
      "path": "shards/subject/50-data-codes.jsonl",
      "form": "jsonl",
      "variables": 7,
-     "tokens": 1859
+     "tokens": 1890
     },
     {
      "path": "shards/subject/50-data-codes.txt",
@@ -782,5 +794,6 @@
     }
    ]
   }
- ]
+ ],
+ "release_shards": 12
 }
