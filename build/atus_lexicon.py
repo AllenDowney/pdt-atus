@@ -20,6 +20,7 @@ TIER2 = re.compile(r"^\s{5,20}(\d{4}) (\S.*)$")
 CODE = re.compile(r"^\s{15,}(\d{6})\s+(\S.*?)(?:\s{3,}(\S.*))?$")
 NOISE = re.compile(r"^\s*(ATUS 2003-2025 Activity coding lexicon\s*|First and\s+6-digit.*|Major\s+second-tier.*|"
                    r"category\s+categories.*|\d{1,3}\s*|\* Not elsewhere classified\s*)$")
+COLUMN_GAP = re.compile(r"\s{3,}")
 NOTE_COLUMN = 90  # notes start near column 100; labels end before it
 
 
@@ -42,11 +43,11 @@ def lexicon(path):
                 continue
             m = TIER2.match(line)
             if m and not CODE.match(line):
-                tier2[m.group(1)] = m.group(2).strip()
+                tier2[m.group(1)] = COLUMN_GAP.split(m.group(2).strip())[0]  # Notes-column text can share the line
                 continue
             m = TIER1.match(line)
             if m:
-                tier1[m.group(1)] = m.group(2).strip()
+                tier1[m.group(1)] = COLUMN_GAP.split(m.group(2).strip())[0]
                 continue
             if codes:  # a wrapped label or note
                 indent = len(line) - len(line.lstrip())
