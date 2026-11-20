@@ -11,7 +11,7 @@ sources:
   path: data/raw/2003-2025/atusresp-0325.zip
   releases:
   - 2003-2025
-  redistribution: unknown
+  redistribution: ship
   acquisition: manual
   manual_steps: In a browser, download it from the ATUS 2003-2025 multi-year files page, https://www.bls.gov/tus/data/datafiles-0325.htm,
     into data/raw/2003-2025/. bls.gov refuses scripts that don't identify a contact (403 'Access Denied'), so download.py
@@ -28,7 +28,7 @@ sources:
   path: data/raw/2003-2025/atussum-0325.zip
   releases:
   - 2003-2025
-  redistribution: unknown
+  redistribution: ship
   acquisition: manual
   manual_steps: In a browser, download it from the ATUS 2003-2025 multi-year files page, https://www.bls.gov/tus/data/datafiles-0325.htm,
     into data/raw/2003-2025/. bls.gov refuses scripts that don't identify a contact (403 'Access Denied'), so download.py
@@ -46,7 +46,7 @@ sources:
   path: data/raw/2003-2025/atusact-0325.zip
   releases:
   - 2003-2025
-  redistribution: unknown
+  redistribution: ship
   acquisition: manual
   manual_steps: In a browser, download it from the ATUS 2003-2025 multi-year files page, https://www.bls.gov/tus/data/datafiles-0325.htm,
     into data/raw/2003-2025/. bls.gov refuses scripts that don't identify a contact (403 'Access Denied'), so download.py
@@ -63,7 +63,7 @@ sources:
   path: data/raw/2003-2025/atuswgts-0325.zip
   releases:
   - 2003-2025
-  redistribution: unknown
+  redistribution: ship
   acquisition: manual
   manual_steps: In a browser, download it from the ATUS 2003-2025 multi-year files page, https://www.bls.gov/tus/data/datafiles-0325.htm,
     into data/raw/2003-2025/. bls.gov refuses scripts that don't identify a contact (403 'Access Denied'), so download.py
@@ -81,7 +81,7 @@ sources:
   path: data/raw/2003-2025/atusintcodebk0325.pdf
   releases:
   - 2003-2025
-  redistribution: unknown
+  redistribution: ship
   acquisition: manual
   manual_steps: In a browser, download it from the ATUS 2003-2025 multi-year files page, https://www.bls.gov/tus/data/datafiles-0325.htm,
     into data/raw/2003-2025/. bls.gov refuses scripts that don't identify a contact (403 'Access Denied'), so download.py
@@ -98,7 +98,7 @@ sources:
   path: data/raw/2003-2025/atuscpscodebk0325.pdf
   releases:
   - 2003-2025
-  redistribution: unknown
+  redistribution: ship
   acquisition: manual
   manual_steps: In a browser, download it from the ATUS 2003-2025 multi-year files page, https://www.bls.gov/tus/data/datafiles-0325.htm,
     into data/raw/2003-2025/. bls.gov refuses scripts that don't identify a contact (403 'Access Denied'), so download.py
@@ -115,7 +115,7 @@ sources:
   path: data/raw/2003-2025/lexiconnoex0325.pdf
   releases:
   - 2003-2025
-  redistribution: unknown
+  redistribution: ship
   acquisition: manual
   manual_steps: In a browser, download it from https://www.bls.gov/tus/lexicons.htm into data/raw/2003-2025/. bls.gov
     refuses scripts that don't identify a contact.
@@ -132,7 +132,7 @@ sources:
   path: data/raw/2003-2025/lexiconchanges.pdf
   releases:
   - 2003-2025
-  redistribution: unknown
+  redistribution: ship
   acquisition: manual
   manual_steps: In a browser, download it from https://www.bls.gov/tus/lexicons.htm into data/raw/2003-2025/. bls.gov
     refuses scripts that don't identify a contact.
@@ -149,7 +149,7 @@ sources:
   path: data/raw/2003-2025/lexiconwex2003.xls
   releases:
   - 2003-2025
-  redistribution: unknown
+  redistribution: ship
   acquisition: manual
   manual_steps: In a browser, download it from https://www.bls.gov/tus/lexicons.htm into data/raw/2003-2025/. bls.gov
     refuses scripts that don't identify a contact.
@@ -164,7 +164,7 @@ sources:
   path: data/raw/2003-2025/lexiconwex2025.xls
   releases:
   - 2003-2025
-  redistribution: unknown
+  redistribution: ship
   acquisition: manual
   manual_steps: In a browser, download it from https://www.bls.gov/tus/lexicons.htm into data/raw/2003-2025/. bls.gov
     refuses scripts that don't identify a contact.
@@ -179,7 +179,7 @@ sources:
   path: data/raw/2003-2025/atususersguide.pdf
   releases:
   - 2003-2025
-  redistribution: unknown
+  redistribution: ship
   acquisition: manual
   manual_steps: Fetched through a web-fetch tool on 2026-11-20 (bls.gov refuses scripts); or download it in a browser.
   fetched_on: '2026-11-20'
@@ -194,7 +194,7 @@ sources:
   path: data/raw/2003-2025/lexiconwex2004.xls
   releases:
   - 2003-2025
-  redistribution: unknown
+  redistribution: ship
   acquisition: manual
   manual_steps: In a browser, download it from https://www.bls.gov/tus/lexicons.htm into data/raw/2003-2025/. bls.gov
     refuses scripts that don't identify a contact.
@@ -209,7 +209,7 @@ sources:
   path: data/raw/2003-2025/lexiconwex2005.xls
   releases:
   - 2003-2025
-  redistribution: unknown
+  redistribution: ship
   acquisition: manual
   manual_steps: In a browser, download it from https://www.bls.gov/tus/lexicons.htm into data/raw/2003-2025/. bls.gov
     refuses scripts that don't identify a contact.
@@ -224,7 +224,7 @@ sources:
   path: data/raw/2003-2025/lexiconwex2007.xls
   releases:
   - 2003-2025
-  redistribution: unknown
+  redistribution: ship
   acquisition: manual
   manual_steps: In a browser, download it from https://www.bls.gov/tus/lexicons.htm into data/raw/2003-2025/. bls.gov
     refuses scripts that don't identify a contact.
@@ -239,7 +239,7 @@ sources:
   path: data/raw/2003-2025/lexiconwex2008.xls
   releases:
   - 2003-2025
-  redistribution: unknown
+  redistribution: ship
   acquisition: manual
   manual_steps: In a browser, download it from https://www.bls.gov/tus/lexicons.htm into data/raw/2003-2025/. bls.gov
     refuses scripts that don't identify a contact.
@@ -254,7 +254,7 @@ sources:
   path: data/raw/2003-2025/lexiconwex2013.xls
   releases:
   - 2003-2025
-  redistribution: unknown
+  redistribution: ship
   acquisition: manual
   manual_steps: In a browser, download it from https://www.bls.gov/tus/lexicons.htm into data/raw/2003-2025/. bls.gov
     refuses scripts that don't identify a contact.
