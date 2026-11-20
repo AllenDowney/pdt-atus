@@ -10,7 +10,8 @@ Columns whose records have storage_type string (TRCODEP, TRTIER1P, TRTIER2P, TUS
 TUSTOPTIME) are read as text, so activity codes keep their leading zeros ("010101"):
 pdt.readers.read_csv_zip would read them as numbers.
 
-Run under the memory cap (CLAUDE.md); the activity file has 5 million rows.
+Run under the memory cap (CLAUDE.md); the activity file has 5 million rows. The reader streams row
+chunks, and pdt.release writes in column batches and row chunks (PublicDataToolkit Task 58).
 """
 
 import io
@@ -46,13 +47,18 @@ def read(release, table, names):
     if not path.exists():
         sys.exit(f"{path} is missing; download it by hand (sources.yaml, manual_steps)")
     text = text_columns(release, table)
-    with zipfile.ZipFile(path) as z:
-        member = next(n for n in z.namelist() if n.endswith(".dat"))
-        with z.open(member) as f:
-            frame = pd.read_csv(io.TextIOWrapper(f, encoding="latin-1"), usecols=names,
-                                dtype={n: str for n in names if n in text}, keep_default_na=False,
-                                na_values={n: [""] for n in names})[names]
-    return frame.astype(object).where(frame.notna(), None), source["id"]
+
+    def chunks():
+        """Row chunks of the asked-for columns, streamed from the zip (pdt.release writes in batches)."""
+        with zipfile.ZipFile(path) as z:
+            member = next(n for n in z.namelist() if n.endswith(".dat"))
+            with z.open(member) as f:
+                for frame in pd.read_csv(io.TextIOWrapper(f, encoding="latin-1"), usecols=names,
+                                         dtype={n: str for n in names if n in text}, keep_default_na=False,
+                                         na_values={n: [""] for n in names}, chunksize=65536):
+                    frame = frame[names]
+                    yield frame.astype(object).where(frame.notna(), None)
+    return chunks(), source["id"]
 
 
 if __name__ == "__main__":

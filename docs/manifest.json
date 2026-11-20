@@ -1,10 +1,11 @@
 {
- "pdt_version": "0.1.0",
+ "pdt_version": "0.2.0",
  "inputs_sha256": "dd7f943f92d0674b8ff9d7c7670bc5b1e557c54dbeddeb9f0eb2015dc4e26c3f",
- "generator_sha256": "9ccfde4fa108cb2b4d7e1cdf675082febafe78bc8e89a2be78db6a98e3a26059",
+ "generator_sha256": "5bd837fcfa83e3bb04c37847b6e1662f093b130380ce5a4ef1067334b670c30d",
  "dataset": "atus",
  "files": [
   ".nojekyll",
+  "about.html",
   "groups/activity-01.html",
   "groups/activity-02.html",
   "groups/activity-03.html",
@@ -30,6 +31,7 @@
   "releases/2003-2025-summary.html",
   "search-index.js",
   "style.css",
+  "using.html",
   "variables/activity/TEWHERE.html",
   "variables/activity/TRCODEP.html",
   "variables/activity/TRTIER1P.html",
