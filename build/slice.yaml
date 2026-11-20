@@ -1,9 +1,99 @@
-# The variables to build, and facts the sources don't give (origin: hand).
-# Edited by hand; read by build/build_records.py.
-release: "2003-2023"
-# Start with 30-50 variables that include the hard cases: a battery, an item
-# asked on only some forms, several wordings, several kinds of missing codes,
-# and anything the publisher has corrected (instructions/03-parse-documentation.md).
-variables: {}
-#  name:
-#    measure: categorical   # categorical, ordinal, continuous, count, identifier, weight, text, date
+# The ATUS slice (PublicDataToolkit Task 56): the variables to build, and facts the
+# sources don't give (origin: hand). Edited by hand; read by build/build_records.py.
+#
+# One release, BLS's 2003-2025 multi-year files; the wave is the diary year (TUYEAR).
+# Tables: respondent (atusresp), summary (atussum), activity (atusact). Variable
+# definitions come from the 2003-25 Interview Data Dictionary (names starting with T)
+# and the ATUS-CPS Data Dictionary (names starting with P or G).
+# The summary file's activity columns (t010101 ...) and the activity codes
+# (TRCODEP, TRTIER1P, TRTIER2P) are described by the 2003-2025 coding lexicon
+# (lexiconnoex0325.pdf), stored as code lists in metadata/code_lists.jsonl.
+
+author: Claude (PublicDataToolkit Task 56)
+date: "2026-11-20"
+release: "2003-2025"
+
+tables:
+  respondent:
+    member: atusresp_0325.dat
+    variables:
+      TUCASEID: identifier
+      TULINENO: identifier
+      TUYEAR: categorical
+      TUMONTH: categorical
+      TUDIARYDATE: date
+      TUFNWGTP: weight
+      TU20FWGT: weight
+      TELFS: categorical
+      TEHRUSLT: continuous
+      TRERNWA: continuous
+      TRTALONE: continuous
+      TRTFRIEND: continuous
+      TRTFAMILY: continuous
+      TUELDER: categorical
+      TRTEC: continuous
+  summary:
+    member: atussum_0325.dat
+    variables:
+      TUCASEID: identifier
+      TUYEAR: categorical
+      TUFNWGTP: weight
+      TU20FWGT: weight
+      TUDIARYDAY: categorical
+      TRHOLIDAY: categorical
+      TEAGE: continuous
+      TESEX: categorical
+      PTDTRACE: categorical
+      PEHSPNON: categorical
+      PEEDUCA: ordinal
+      GEMETSTA: categorical
+      GTMETSTA: categorical
+      TELFS: categorical
+      TEMJOT: categorical
+      TESCHENR: categorical
+      TESCHLVL: categorical
+      TESPEMPNOT: categorical
+      TRCHILDNUM: count
+      TRYHHCHILD: continuous
+      TRDPFTPT: categorical
+      TRSPFTPT: categorical
+      TRSPPRES: categorical
+      TRERNWA: continuous
+      TEHRUSLT: continuous
+    # Plus every activity column, t010101 ... t509989: minutes on each 6-digit lexicon code,
+    # built from the lexicon by rule atus_summary_from_lexicon.
+    activity_columns: true
+  activity:
+    member: atusact_0325.dat
+    variables:
+      TUCASEID: identifier
+      TUACTIVITY_N: identifier
+      TRCODEP: categorical
+      TRTIER1P: categorical
+      TRTIER2P: categorical
+      TUACTDUR24: continuous
+      TUSTARTTIM: text
+      TUSTOPTIME: text
+      TEWHERE: categorical
+    code_lists:   # which lexicon list each code variable uses
+      TRCODEP: atus-lexicon-0325
+      TRTIER2P: atus-lexicon-0325-tier2
+      TRTIER1P: atus-lexicon-0325-tier1
+  replicates:
+    member: atuswgts_0325.dat
+    variables:
+      TUCASEID: identifier
+    # Plus TUFNWGTP001 ... TUFNWGTP160, the replicate weights for TUFNWGTP, built by rule
+    # atus_replicate_weights from the file's description (Repl0325_info.txt in the zip).
+    replicate_weights: {prefix: TUFNWGTP, n: 160}
+
+# Rule atus_data_codes: the lexicon's tier 50, "Data Codes", are activities that couldn't be
+# coded. As codes of TRCODEP they're missing values; the types come from their labels.
+data_codes:
+  "500101": [uncodeable]    # Insufficient detail in verbatim
+  "500103": [uncodeable]    # Missing travel or destination
+  "500104": [uncodeable]    # Recorded simultaneous activities incorrectly
+  "500105": [refused]       # Respondent refused to provide information/"none of your business"
+  "500106": [dk]            # Gap/can't remember
+  "500107": [uncodeable]    # Unable to code activity at 1st tier
+  "509989": [unspecified]   # Data codes, n.e.c.*

@@ -1,0 +1,23 @@
+{
+ "pdt_version": "0.1.0",
+ "inputs_sha256": "127b55c43782f567c7df265506310e4992198ec0edcb6ec66f4da38a5e153490",
+ "dataset": "atus",
+ "spec": "0.1.0",
+ "files": [
+  "2003-2025.yaml",
+  "LOSSES.md"
+ ],
+ "losses": {
+  "2003-2025": {
+   "release_version": 1,
+   "variables": 641,
+   "untyped": 6,
+   "availability": 14501,
+   "provenance_fields": 4046,
+   "open_ranges": 593,
+   "missing_codes": 195,
+   "numeric_code_labels": 21,
+   "groups": 18
+  }
+ }
+}

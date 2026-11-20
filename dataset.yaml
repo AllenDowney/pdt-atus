@@ -2,30 +2,106 @@
 # Schema: PublicDataToolkit/schema/dataset.schema.json. Edited by hand.
 standard_version: "0.1"
 id: atus
+kind: survey   # STANDARD.md §2.1: survey, administrative or portal
 title: "American Time Use Survey (ATUS)"
 publisher:
   name: "U.S. Bureau of Labor Statistics (BLS)"
   url: "https://www.bls.gov/"
 url: "https://www.bls.gov/tus/"
 description: "BLS\u0027s survey of how Americans aged 15 and over spend their time, from a 24-hour time diary, conducted by the Census Bureau since 2003 with households leaving the Current Population Survey."
+citation: "U.S. Bureau of Labor Statistics, American Time Use Survey, 2003-2025 multi-year microdata files, https://www.bls.gov/tus/data/datafiles-0325.htm."
 # Terms are decided by a person, never by an agent or this template (STANDARD.md §8).
 # Quote what the terms pages say in `summary`, then have a person set each field
 # to ship or build-only and fill reviewed_by and reviewed_on. `unknown` blocks
 # shipping anything that depends on it.
 terms:
-  url: "https://www.bls.gov/bls/blsterms.htm"
-  summary: Not yet reviewed.
+  url: https://www.bls.gov/opub/copyright-information.htm
+  summary: 'PENDING: a person has not decided these terms. What BLS says (read 2026-11-20): its copyright page,
+    https://www.bls.gov/opub/copyright-information.htm, says "everything that we publish, both in hard copy and
+    electronically, is in the public domain, except for previously copyrighted photographs and illustrations" and
+    "You are free to use our public domain material without specific permission, although we do ask that you cite
+    the Bureau of Labor Statistics as the source." No ATUS page states other terms of use for the microdata. Separately,
+    BLS''s terms (https://www.bls.gov/bls/blsterms.htm) reserve "the right to block robots that do not contain information
+    that can be used to contact the owner": that limits how files are fetched, not how they are used, and is why
+    every source is downloaded by hand.'
   data: unknown
   documentation: unknown
   metadata: unknown
   llm_processing: unknown
 dimensions:
   wave:
-    label: "year"
+    label: year
+    column: TUYEAR
+    note: The year of the diary day. The multi-year files hold 2003-2025; 2020 covers only the days before March
+      18 and after May 9, when data collection was suspended.
 releases:
-  - id: "2003-2023"
-    label: "ATUS 2003-2023 multi-year microdata files"
-    status: current
-    sources: [atus-0323-respondent]
-    # A release with several data files lists `tables`, each with an id, label,
-    # sources, key and references (STANDARD.md §2.1). Examples: pdt-nsfg, pdt-fars.
+- id: 2003-2025
+  label: ATUS 2003-2025 multi-year microdata files
+  status: current
+  sources:
+  - atus-0325-respondent
+  - atus-0325-summary
+  - atus-0325-activity
+  - atus-0325-replicates
+  - atus-0325-interview-dictionary
+  - atus-0325-cps-dictionary
+  - atus-0325-lexicon
+  - atus-lexicon-changes
+  - atus-lexicon-2003
+  - atus-lexicon-2025
+  - atus-users-guide
+  tables:
+  - id: respondent
+    label: 'Respondent file: one record per respondent'
+    sources:
+    - atus-0325-respondent
+    key:
+    - TUCASEID
+    design: &id001
+      weights:
+      - TUFNWGTP
+      - TU20FWGT
+      replicates:
+        prefix: TUFNWGTP
+        n: 160
+        method: fay
+        fay_factor: 0.5
+        note: 'Replicate weights TUFNWGTP001-TUFNWGTP160 are in the table `replicates`, one row per respondent,
+          joined on TUCASEID; they''re the replicates of TUFNWGTP (Repl0325_info.txt). The User''s Guide (§7.5,
+          p. 44) calls the method "a modified balanced half-sample method of replication, developed in the 1980s
+          by Robert Fay" and gives Var(Y0) = 4/160 * sum over i of (Yi - Y0)^2. The factor 0.5 is derived, not stated:
+          for Fay''s method the multiplier is 1/(R(1-k)^2), and 4/R means k = 0.5. The file has no replicate weights
+          for 2020 (every value is -1); the 2020 replicates are in BLS''s pandemic replicate weights file (2019-2020),
+          not used here.'
+      note: 'The weight is TUFNWGTP for every year except 2020, where it is -1; for 2020 use TU20FWGT (dictionary;
+        User''s Guide ch. 7). TU20FWGT has values only for 2019 and 2020. This can''t be stated per year in `design`:
+        the release covers all years, and design can''t vary by wave. Weights count person-days, not persons: the
+        sum of the weights for a quarter is the population times the days in the quarter (User''s Guide §7.1).'
+  - id: summary
+    label: 'Activity summary file: one record per respondent, with minutes on each activity code'
+    sources:
+    - atus-0325-summary
+    key:
+    - TUCASEID
+    references: &id002
+    - columns:
+      - TUCASEID
+      table: respondent
+    design: *id001
+  - id: activity
+    label: 'Activity file: one record per activity in the diary'
+    sources:
+    - atus-0325-activity
+    key:
+    - TUCASEID
+    - TUACTIVITY_N
+    references: *id002
+    design:
+      note: 'No weights: join to `respondent` (or `summary`) on TUCASEID and use its weight.'
+  - id: replicates
+    label: 'Replicate weights file: 160 replicates of TUFNWGTP per respondent'
+    sources:
+    - atus-0325-replicates
+    key:
+    - TUCASEID
+    references: *id002

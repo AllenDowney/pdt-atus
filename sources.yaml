@@ -1,17 +1,188 @@
-# Every file this repo depends on (STANDARD.md §2.2): data files, codebooks,
-# questionnaires, release notes, errata and terms pages, upstream packages.
-# Schema: PublicDataToolkit/schema/sources.schema.json. Edited by hand.
-#
-# Once a file is fetched, fill fetched_on, bytes and sha256 (pdt check C6).
-# An upstream package also needs `version` (a tag or commit), and documentation
-# says which releases it `documents`.
+# Every file this repo depends on (STANDARD.md §2.2). Schema:
+# PublicDataToolkit/schema/sources.schema.json. Edited by hand; written once from the
+# downloaded files (fetched_on, sha256, bytes). bls.gov refuses scripts, so every file
+# is downloaded by hand. redistribution stays unknown until a person decides the terms.
 sources:
-  - id: atus-0323-respondent
-    title: "ATUS 2003-2023 multi-year microdata files, data"
-    kind: data
-    format: csv
-    url: "https://www.bls.gov/tus/datafiles/atusresp-0323.zip"
-    path: data/raw/CHANGE-ME
-    releases: ["2003-2023"]
-    redistribution: unknown
-    acquisition: automated
+- id: atus-0325-respondent
+  title: ATUS 2003-2025 Respondent file (atusresp_0325.dat, CSV)
+  kind: data
+  format: csv
+  url: https://www.bls.gov/tus/datafiles/atusresp-0325.zip
+  path: data/raw/2003-2025/atusresp-0325.zip
+  releases:
+  - 2003-2025
+  redistribution: unknown
+  acquisition: manual
+  manual_steps: In a browser, download it from the ATUS 2003-2025 multi-year files page, https://www.bls.gov/tus/data/datafiles-0325.htm,
+    into data/raw/2003-2025/. bls.gov refuses scripts that don't identify a contact (403 'Access Denied'), so download.py
+    doesn't fetch it.
+  fetched_on: '2026-11-20'
+  sha256: 026dcbf38665c749baa486e080273f67246135c4ee013bd364c43d757adeda9d
+  bytes: 16710282
+  note: 258,954 rows, 133 columns; one per respondent. The zip also has SAS, SPSS and Stata read programs and Resp0325_info.txt.
+- id: atus-0325-summary
+  title: ATUS 2003-2025 Activity Summary file (atussum_0325.dat, CSV)
+  kind: data
+  format: csv
+  url: https://www.bls.gov/tus/datafiles/atussum-0325.zip
+  path: data/raw/2003-2025/atussum-0325.zip
+  releases:
+  - 2003-2025
+  redistribution: unknown
+  acquisition: manual
+  manual_steps: In a browser, download it from the ATUS 2003-2025 multi-year files page, https://www.bls.gov/tus/data/datafiles-0325.htm,
+    into data/raw/2003-2025/. bls.gov refuses scripts that don't identify a contact (403 'Access Denied'), so download.py
+    doesn't fetch it.
+  fetched_on: '2026-11-20'
+  sha256: a33499aa7b74e855ec2727e8007931dd0de469507acc05ead4af32831b1d4d68
+  bytes: 16141000
+  note: '258,954 rows, 456 columns: 25 respondent variables and 431 activity columns t010101 ... t509989 (minutes).
+    Sum0325_info.txt in the zip explains the column names.'
+- id: atus-0325-activity
+  title: ATUS 2003-2025 Activity file (atusact_0325.dat, CSV)
+  kind: data
+  format: csv
+  url: https://www.bls.gov/tus/datafiles/atusact-0325.zip
+  path: data/raw/2003-2025/atusact-0325.zip
+  releases:
+  - 2003-2025
+  redistribution: unknown
+  acquisition: manual
+  manual_steps: In a browser, download it from the ATUS 2003-2025 multi-year files page, https://www.bls.gov/tus/data/datafiles-0325.htm,
+    into data/raw/2003-2025/. bls.gov refuses scripts that don't identify a contact (403 'Access Denied'), so download.py
+    doesn't fetch it.
+  fetched_on: '2026-11-20'
+  sha256: 8d2540316e04f7840f27cbe71f49fcab24688d8aeeec42ddad1c3b3ea052a2db
+  bytes: 83407298
+  note: 4,994,172 rows, 29 columns; one per diary activity. Activity codes keep their leading zeros (010101).
+- id: atus-0325-replicates
+  title: ATUS 2003-2025 Replicate weights file (atuswgts_0325.dat, CSV)
+  kind: data
+  format: csv
+  url: https://www.bls.gov/tus/datafiles/atuswgts-0325.zip
+  path: data/raw/2003-2025/atuswgts-0325.zip
+  releases:
+  - 2003-2025
+  redistribution: unknown
+  acquisition: manual
+  manual_steps: In a browser, download it from the ATUS 2003-2025 multi-year files page, https://www.bls.gov/tus/data/datafiles-0325.htm,
+    into data/raw/2003-2025/. bls.gov refuses scripts that don't identify a contact (403 'Access Denied'), so download.py
+    doesn't fetch it.
+  fetched_on: '2026-11-20'
+  sha256: fd1970cb6376c11ec4d645256f6c4a82c44e70423c8ed4bc5ea687737108c2d5
+  bytes: 299670507
+  note: '258,954 rows: TUCASEID and TUFNWGTP001 ... TUFNWGTP160, empty for 2020. Repl0325_info.txt in the zip describes
+    them.'
+- id: atus-0325-interview-dictionary
+  title: ATUS 2003-25 Interview Data Dictionary (June 2026)
+  kind: codebook
+  format: pdf
+  url: https://www.bls.gov/tus/dictionaries/atusintcodebk0325.pdf
+  path: data/raw/2003-2025/atusintcodebk0325.pdf
+  releases:
+  - 2003-2025
+  redistribution: unknown
+  acquisition: manual
+  manual_steps: In a browser, download it from the ATUS 2003-2025 multi-year files page, https://www.bls.gov/tus/data/datafiles-0325.htm,
+    into data/raw/2003-2025/. bls.gov refuses scripts that don't identify a contact (403 'Access Denied'), so download.py
+    doesn't fetch it.
+  fetched_on: '2026-11-20'
+  sha256: cdb3a4f7e5a2517698d2386e78d3833f9662be3bd7b03e4c38c5e74b8e374b10
+  bytes: 624644
+  note: Defines the variables starting with T. Read as text with pdftotext -layout into data/interim/ by build/build_records.py.
+- id: atus-0325-cps-dictionary
+  title: ATUS 2003-25 ATUS-CPS Data Dictionary (June 2026)
+  kind: codebook
+  format: pdf
+  url: https://www.bls.gov/tus/dictionaries/atuscpscodebk0325.pdf
+  path: data/raw/2003-2025/atuscpscodebk0325.pdf
+  releases:
+  - 2003-2025
+  redistribution: unknown
+  acquisition: manual
+  manual_steps: In a browser, download it from the ATUS 2003-2025 multi-year files page, https://www.bls.gov/tus/data/datafiles-0325.htm,
+    into data/raw/2003-2025/. bls.gov refuses scripts that don't identify a contact (403 'Access Denied'), so download.py
+    doesn't fetch it.
+  fetched_on: '2026-11-20'
+  sha256: bde4f3e71b0f4b4bc65ce807c9fa5de5976482693f2decfd6c13a2ff25d27d2e
+  bytes: 1211097
+  note: Defines the variables starting with P or G, which come from the respondent's last CPS interview.
+- id: atus-0325-lexicon
+  title: ATUS 2003-2025 Activity coding lexicon (multi-year, no examples)
+  kind: codebook
+  format: pdf
+  url: https://www.bls.gov/tus/lexicons/lexiconnoex0325.pdf
+  path: data/raw/2003-2025/lexiconnoex0325.pdf
+  releases:
+  - 2003-2025
+  redistribution: unknown
+  acquisition: manual
+  manual_steps: In a browser, download it from https://www.bls.gov/tus/lexicons.htm into data/raw/2003-2025/. bls.gov
+    refuses scripts that don't identify a contact.
+  fetched_on: '2026-11-20'
+  sha256: f6d3d25bfc28b921991a74d8fef07a94b5c4ad2a02c3a36bd4b6d0843e7a8bc2
+  bytes: 212534
+  note: The code list for the multi-year Activity and Activity Summary files. Read as text and as positioned text
+    (pdftotext -bbox-layout) by build/.
+- id: atus-lexicon-changes
+  title: Differences between the 2003 to 2025 lexicons (BLS, June 2026)
+  kind: crosswalk
+  format: pdf
+  url: https://www.bls.gov/tus/lexicons/lexiconchanges.pdf
+  path: data/raw/2003-2025/lexiconchanges.pdf
+  releases:
+  - 2003-2025
+  redistribution: unknown
+  acquisition: manual
+  manual_steps: In a browser, download it from https://www.bls.gov/tus/lexicons.htm into data/raw/2003-2025/. bls.gov
+    refuses scripts that don't identify a contact.
+  fetched_on: '2026-11-20'
+  sha256: fe785552a6cf04aeee48d15da94175d35f3aebbcceaf0b67b657c30cc2b4bdcb
+  bytes: 320474
+  note: Examples added or deleted by year; crosswalks for 2003/04, 2004/05, 2006/07, 2007/08, 2012/13 and 2023/24;
+    comparable codes across years.
+- id: atus-lexicon-2003
+  title: ATUS 2003 single-year coding lexicon, with examples (XLS)
+  kind: codebook
+  format: xls
+  url: https://www.bls.gov/tus/lexicons/lexiconwex2003.xls
+  path: data/raw/2003-2025/lexiconwex2003.xls
+  releases:
+  - 2003-2025
+  redistribution: unknown
+  acquisition: manual
+  manual_steps: In a browser, download it from https://www.bls.gov/tus/lexicons.htm into data/raw/2003-2025/. bls.gov
+    refuses scripts that don't identify a contact.
+  fetched_on: '2026-11-20'
+  sha256: b46c7569a2b8ebfd16d014c7d4b59785266a766201eaa4620783c83184106768
+  bytes: 207872
+- id: atus-lexicon-2025
+  title: ATUS 2025 single-year coding lexicon, with examples (XLS)
+  kind: codebook
+  format: xls
+  url: https://www.bls.gov/tus/lexicons/lexiconwex2025.xls
+  path: data/raw/2003-2025/lexiconwex2025.xls
+  releases:
+  - 2003-2025
+  redistribution: unknown
+  acquisition: manual
+  manual_steps: In a browser, download it from https://www.bls.gov/tus/lexicons.htm into data/raw/2003-2025/. bls.gov
+    refuses scripts that don't identify a contact.
+  fetched_on: '2026-11-20'
+  sha256: 5b2802bf2f7a403f0a62fe9beb2dc64cff1e463489080795f551cf373ce7315b
+  bytes: 248320
+- id: atus-users-guide
+  title: American Time Use Survey User's Guide (September 2026)
+  kind: other
+  format: pdf
+  url: https://www.bls.gov/tus/atususersguide.pdf
+  path: data/raw/2003-2025/atususersguide.pdf
+  releases:
+  - 2003-2025
+  redistribution: unknown
+  acquisition: manual
+  manual_steps: Fetched through a web-fetch tool on 2026-11-20 (bls.gov refuses scripts); or download it in a browser.
+  fetched_on: '2026-11-20'
+  sha256: 3d06f9f8285cd65325b7d460bb6021c27f31871926df5a6cd68988edebe7c90e
+  bytes: 1111540
+  note: 'Chapter 7: weights, linking variables and the replicate variance formula.'

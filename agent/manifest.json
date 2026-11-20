@@ -1,0 +1,786 @@
+{
+ "pdt_version": "0.1.0",
+ "inputs_sha256": "127b55c43782f567c7df265506310e4992198ec0edcb6ec66f4da38a5e153490",
+ "dataset": "atus",
+ "max_tokens": 20000,
+ "shards": [
+  {
+   "kind": "table",
+   "title": "Release 2003-2025, table respondent",
+   "basis": "every variable in the table",
+   "full_records": [
+    "metadata/releases/2003-2025/respondent/variables.jsonl"
+   ],
+   "completeness": "complete",
+   "filter": {
+    "release": "2003-2025",
+    "table": "respondent"
+   },
+   "releases": [
+    "2003-2025"
+   ],
+   "n_in_scope": 15,
+   "rule_versions": {},
+   "notes": [],
+   "count": 15,
+   "files": [
+    {
+     "path": "shards/table/2003-2025-respondent.jsonl",
+     "form": "jsonl",
+     "variables": 15,
+     "tokens": 4472
+    },
+    {
+     "path": "shards/table/2003-2025-respondent.txt",
+     "form": "txt",
+     "variables": 15,
+     "tokens": 1114
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "title": "Release 2003-2025, table summary",
+   "basis": "every variable in the table",
+   "full_records": [
+    "metadata/releases/2003-2025/summary/variables.jsonl"
+   ],
+   "completeness": "complete",
+   "filter": {
+    "release": "2003-2025",
+    "table": "summary"
+   },
+   "releases": [
+    "2003-2025"
+   ],
+   "n_in_scope": 456,
+   "rule_versions": {},
+   "notes": [],
+   "count": 456,
+   "files": [
+    {
+     "path": "shards/table/2003-2025-summary.part1.jsonl",
+     "form": "jsonl",
+     "variables": 72,
+     "tokens": 19401
+    },
+    {
+     "path": "shards/table/2003-2025-summary.part2.jsonl",
+     "form": "jsonl",
+     "variables": 78,
+     "tokens": 19355
+    },
+    {
+     "path": "shards/table/2003-2025-summary.part3.jsonl",
+     "form": "jsonl",
+     "variables": 78,
+     "tokens": 19323
+    },
+    {
+     "path": "shards/table/2003-2025-summary.part4.jsonl",
+     "form": "jsonl",
+     "variables": 79,
+     "tokens": 19463
+    },
+    {
+     "path": "shards/table/2003-2025-summary.part5.jsonl",
+     "form": "jsonl",
+     "variables": 79,
+     "tokens": 19525
+    },
+    {
+     "path": "shards/table/2003-2025-summary.part6.jsonl",
+     "form": "jsonl",
+     "variables": 70,
+     "tokens": 18577
+    },
+    {
+     "path": "shards/table/2003-2025-summary.part1.txt",
+     "form": "txt",
+     "variables": 423,
+     "tokens": 19129
+    },
+    {
+     "path": "shards/table/2003-2025-summary.part2.txt",
+     "form": "txt",
+     "variables": 33,
+     "tokens": 2098
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "title": "Release 2003-2025, table activity",
+   "basis": "every variable in the table",
+   "full_records": [
+    "metadata/releases/2003-2025/activity/variables.jsonl"
+   ],
+   "completeness": "complete",
+   "filter": {
+    "release": "2003-2025",
+    "table": "activity"
+   },
+   "releases": [
+    "2003-2025"
+   ],
+   "n_in_scope": 9,
+   "rule_versions": {},
+   "notes": [],
+   "count": 9,
+   "files": [
+    {
+     "path": "shards/table/2003-2025-activity.part1.jsonl",
+     "form": "jsonl",
+     "variables": 4,
+     "tokens": 17249
+    },
+    {
+     "path": "shards/table/2003-2025-activity.part2.jsonl",
+     "form": "jsonl",
+     "variables": 5,
+     "tokens": 3945
+    },
+    {
+     "path": "shards/table/2003-2025-activity.txt",
+     "form": "txt",
+     "variables": 9,
+     "tokens": 543
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "title": "Release 2003-2025, table replicates",
+   "basis": "every variable in the table",
+   "full_records": [
+    "metadata/releases/2003-2025/replicates/variables.jsonl"
+   ],
+   "completeness": "complete",
+   "filter": {
+    "release": "2003-2025",
+    "table": "replicates"
+   },
+   "releases": [
+    "2003-2025"
+   ],
+   "n_in_scope": 161,
+   "rule_versions": {},
+   "notes": [],
+   "count": 161,
+   "files": [
+    {
+     "path": "shards/table/2003-2025-replicates.part1.jsonl",
+     "form": "jsonl",
+     "variables": 144,
+     "tokens": 19417
+    },
+    {
+     "path": "shards/table/2003-2025-replicates.part2.jsonl",
+     "form": "jsonl",
+     "variables": 17,
+     "tokens": 2404
+    },
+    {
+     "path": "shards/table/2003-2025-replicates.txt",
+     "form": "txt",
+     "variables": 161,
+     "tokens": 4414
+    }
+   ]
+  },
+  {
+   "kind": "subject",
+   "title": "Subject: 01 Personal Care Activities",
+   "basis": "the publisher's subject list, from atus-0325-lexicon",
+   "full_records": [
+    "metadata/releases/2003-2025/summary/variables.jsonl"
+   ],
+   "completeness": "complete",
+   "filter": {
+    "subject": "01 Personal Care Activities"
+   },
+   "releases": [
+    "2003-2025"
+   ],
+   "n_in_scope": 641,
+   "rule_versions": {},
+   "notes": [],
+   "count": 12,
+   "files": [
+    {
+     "path": "shards/subject/01-personal-care-activities.jsonl",
+     "form": "jsonl",
+     "variables": 12,
+     "tokens": 3024
+    },
+    {
+     "path": "shards/subject/01-personal-care-activities.txt",
+     "form": "txt",
+     "variables": 12,
+     "tokens": 600
+    }
+   ]
+  },
+  {
+   "kind": "subject",
+   "title": "Subject: 02 Household Activities",
+   "basis": "the publisher's subject list, from atus-0325-lexicon",
+   "full_records": [
+    "metadata/releases/2003-2025/summary/variables.jsonl"
+   ],
+   "completeness": "complete",
+   "filter": {
+    "subject": "02 Household Activities"
+   },
+   "releases": [
+    "2003-2025"
+   ],
+   "n_in_scope": 641,
+   "rule_versions": {},
+   "notes": [],
+   "count": 32,
+   "files": [
+    {
+     "path": "shards/subject/02-household-activities.jsonl",
+     "form": "jsonl",
+     "variables": 32,
+     "tokens": 7948
+    },
+    {
+     "path": "shards/subject/02-household-activities.txt",
+     "form": "txt",
+     "variables": 32,
+     "tokens": 1474
+    }
+   ]
+  },
+  {
+   "kind": "subject",
+   "title": "Subject: 03 Caring For & Helping Household (HH) Members",
+   "basis": "the publisher's subject list, from atus-0325-lexicon",
+   "full_records": [
+    "metadata/releases/2003-2025/summary/variables.jsonl"
+   ],
+   "completeness": "complete",
+   "filter": {
+    "subject": "03 Caring For & Helping Household (HH) Members"
+   },
+   "releases": [
+    "2003-2025"
+   ],
+   "n_in_scope": 641,
+   "rule_versions": {},
+   "notes": [],
+   "count": 33,
+   "files": [
+    {
+     "path": "shards/subject/03-caring-for-helping-household-hh-members.jsonl",
+     "form": "jsonl",
+     "variables": 33,
+     "tokens": 8242
+    },
+    {
+     "path": "shards/subject/03-caring-for-helping-household-hh-members.txt",
+     "form": "txt",
+     "variables": 33,
+     "tokens": 1565
+    }
+   ]
+  },
+  {
+   "kind": "subject",
+   "title": "Subject: 04 Caring For & Helping Nonhousehold (NonHH) Members",
+   "basis": "the publisher's subject list, from atus-0325-lexicon",
+   "full_records": [
+    "metadata/releases/2003-2025/summary/variables.jsonl"
+   ],
+   "completeness": "complete",
+   "filter": {
+    "subject": "04 Caring For & Helping Nonhousehold (NonHH) Members"
+   },
+   "releases": [
+    "2003-2025"
+   ],
+   "n_in_scope": 641,
+   "rule_versions": {},
+   "notes": [],
+   "count": 37,
+   "files": [
+    {
+     "path": "shards/subject/04-caring-for-helping-nonhousehold-nonhh-members.jsonl",
+     "form": "jsonl",
+     "variables": 37,
+     "tokens": 9277
+    },
+    {
+     "path": "shards/subject/04-caring-for-helping-nonhousehold-nonhh-members.txt",
+     "form": "txt",
+     "variables": 37,
+     "tokens": 1790
+    }
+   ]
+  },
+  {
+   "kind": "subject",
+   "title": "Subject: 05 Work & Work-Related Activities",
+   "basis": "the publisher's subject list, from atus-0325-lexicon",
+   "full_records": [
+    "metadata/releases/2003-2025/summary/variables.jsonl"
+   ],
+   "completeness": "complete",
+   "filter": {
+    "subject": "05 Work & Work-Related Activities"
+   },
+   "releases": [
+    "2003-2025"
+   ],
+   "n_in_scope": 641,
+   "rule_versions": {},
+   "notes": [],
+   "count": 20,
+   "files": [
+    {
+     "path": "shards/subject/05-work-work-related-activities.jsonl",
+     "form": "jsonl",
+     "variables": 20,
+     "tokens": 5085
+    },
+    {
+     "path": "shards/subject/05-work-work-related-activities.txt",
+     "form": "txt",
+     "variables": 20,
+     "tokens": 1041
+    }
+   ]
+  },
+  {
+   "kind": "subject",
+   "title": "Subject: 06 Education",
+   "basis": "the publisher's subject list, from atus-0325-lexicon",
+   "full_records": [
+    "metadata/releases/2003-2025/summary/variables.jsonl"
+   ],
+   "completeness": "complete",
+   "filter": {
+    "subject": "06 Education"
+   },
+   "releases": [
+    "2003-2025"
+   ],
+   "n_in_scope": 641,
+   "rule_versions": {},
+   "notes": [],
+   "count": 18,
+   "files": [
+    {
+     "path": "shards/subject/06-education.jsonl",
+     "form": "jsonl",
+     "variables": 18,
+     "tokens": 4578
+    },
+    {
+     "path": "shards/subject/06-education.txt",
+     "form": "txt",
+     "variables": 18,
+     "tokens": 938
+    }
+   ]
+  },
+  {
+   "kind": "subject",
+   "title": "Subject: 07 Consumer Purchases",
+   "basis": "the publisher's subject list, from atus-0325-lexicon",
+   "full_records": [
+    "metadata/releases/2003-2025/summary/variables.jsonl"
+   ],
+   "completeness": "complete",
+   "filter": {
+    "subject": "07 Consumer Purchases"
+   },
+   "releases": [
+    "2003-2025"
+   ],
+   "n_in_scope": 641,
+   "rule_versions": {},
+   "notes": [],
+   "count": 11,
+   "files": [
+    {
+     "path": "shards/subject/07-consumer-purchases.jsonl",
+     "form": "jsonl",
+     "variables": 11,
+     "tokens": 2801
+    },
+    {
+     "path": "shards/subject/07-consumer-purchases.txt",
+     "form": "txt",
+     "variables": 11,
+     "tokens": 579
+    }
+   ]
+  },
+  {
+   "kind": "subject",
+   "title": "Subject: 08 Professional & Personal Care Services",
+   "basis": "the publisher's subject list, from atus-0325-lexicon",
+   "full_records": [
+    "metadata/releases/2003-2025/summary/variables.jsonl"
+   ],
+   "completeness": "complete",
+   "filter": {
+    "subject": "08 Professional & Personal Care Services"
+   },
+   "releases": [
+    "2003-2025"
+   ],
+   "n_in_scope": 641,
+   "rule_versions": {},
+   "notes": [],
+   "count": 26,
+   "files": [
+    {
+     "path": "shards/subject/08-professional-personal-care-services.jsonl",
+     "form": "jsonl",
+     "variables": 26,
+     "tokens": 6516
+    },
+    {
+     "path": "shards/subject/08-professional-personal-care-services.txt",
+     "form": "txt",
+     "variables": 26,
+     "tokens": 1256
+    }
+   ]
+  },
+  {
+   "kind": "subject",
+   "title": "Subject: 09 Household Services",
+   "basis": "the publisher's subject list, from atus-0325-lexicon",
+   "full_records": [
+    "metadata/releases/2003-2025/summary/variables.jsonl"
+   ],
+   "completeness": "complete",
+   "filter": {
+    "subject": "09 Household Services"
+   },
+   "releases": [
+    "2003-2025"
+   ],
+   "n_in_scope": 641,
+   "rule_versions": {},
+   "notes": [],
+   "count": 18,
+   "files": [
+    {
+     "path": "shards/subject/09-household-services.jsonl",
+     "form": "jsonl",
+     "variables": 18,
+     "tokens": 4549
+    },
+    {
+     "path": "shards/subject/09-household-services.txt",
+     "form": "txt",
+     "variables": 18,
+     "tokens": 910
+    }
+   ]
+  },
+  {
+   "kind": "subject",
+   "title": "Subject: 10 Government Services & Civic Obligations",
+   "basis": "the publisher's subject list, from atus-0325-lexicon",
+   "full_records": [
+    "metadata/releases/2003-2025/summary/variables.jsonl"
+   ],
+   "completeness": "complete",
+   "filter": {
+    "subject": "10 Government Services & Civic Obligations"
+   },
+   "releases": [
+    "2003-2025"
+   ],
+   "n_in_scope": 641,
+   "rule_versions": {},
+   "notes": [],
+   "count": 12,
+   "files": [
+    {
+     "path": "shards/subject/10-government-services-civic-obligations.jsonl",
+     "form": "jsonl",
+     "variables": 12,
+     "tokens": 3135
+    },
+    {
+     "path": "shards/subject/10-government-services-civic-obligations.txt",
+     "form": "txt",
+     "variables": 12,
+     "tokens": 711
+    }
+   ]
+  },
+  {
+   "kind": "subject",
+   "title": "Subject: 11 Eating and Drinking",
+   "basis": "the publisher's subject list, from atus-0325-lexicon",
+   "full_records": [
+    "metadata/releases/2003-2025/summary/variables.jsonl"
+   ],
+   "completeness": "complete",
+   "filter": {
+    "subject": "11 Eating and Drinking"
+   },
+   "releases": [
+    "2003-2025"
+   ],
+   "n_in_scope": 641,
+   "rule_versions": {},
+   "notes": [],
+   "count": 5,
+   "files": [
+    {
+     "path": "shards/subject/11-eating-and-drinking.jsonl",
+     "form": "jsonl",
+     "variables": 5,
+     "tokens": 1374
+    },
+    {
+     "path": "shards/subject/11-eating-and-drinking.txt",
+     "form": "txt",
+     "variables": 5,
+     "tokens": 367
+    }
+   ]
+  },
+  {
+   "kind": "subject",
+   "title": "Subject: 12 Socializing, Relaxing, and Leisure",
+   "basis": "the publisher's subject list, from atus-0325-lexicon",
+   "full_records": [
+    "metadata/releases/2003-2025/summary/variables.jsonl"
+   ],
+   "completeness": "complete",
+   "filter": {
+    "subject": "12 Socializing, Relaxing, and Leisure"
+   },
+   "releases": [
+    "2003-2025"
+   ],
+   "n_in_scope": 641,
+   "rule_versions": {},
+   "notes": [],
+   "count": 31,
+   "files": [
+    {
+     "path": "shards/subject/12-socializing-relaxing-and-leisure.jsonl",
+     "form": "jsonl",
+     "variables": 31,
+     "tokens": 7710
+    },
+    {
+     "path": "shards/subject/12-socializing-relaxing-and-leisure.txt",
+     "form": "txt",
+     "variables": 31,
+     "tokens": 1438
+    }
+   ]
+  },
+  {
+   "kind": "subject",
+   "title": "Subject: 13 Sports, Exercise, & Recreation",
+   "basis": "the publisher's subject list, from atus-0325-lexicon",
+   "full_records": [
+    "metadata/releases/2003-2025/summary/variables.jsonl"
+   ],
+   "completeness": "complete",
+   "filter": {
+    "subject": "13 Sports, Exercise, & Recreation"
+   },
+   "releases": [
+    "2003-2025"
+   ],
+   "n_in_scope": 641,
+   "rule_versions": {},
+   "notes": [],
+   "count": 77,
+   "files": [
+    {
+     "path": "shards/subject/13-sports-exercise-recreation.jsonl",
+     "form": "jsonl",
+     "variables": 77,
+     "tokens": 18815
+    },
+    {
+     "path": "shards/subject/13-sports-exercise-recreation.txt",
+     "form": "txt",
+     "variables": 77,
+     "tokens": 3226
+    }
+   ]
+  },
+  {
+   "kind": "subject",
+   "title": "Subject: 14 Religious and Spiritual Activities",
+   "basis": "the publisher's subject list, from atus-0325-lexicon",
+   "full_records": [
+    "metadata/releases/2003-2025/summary/variables.jsonl"
+   ],
+   "completeness": "complete",
+   "filter": {
+    "subject": "14 Religious and Spiritual Activities"
+   },
+   "releases": [
+    "2003-2025"
+   ],
+   "n_in_scope": 641,
+   "rule_versions": {},
+   "notes": [],
+   "count": 6,
+   "files": [
+    {
+     "path": "shards/subject/14-religious-and-spiritual-activities.jsonl",
+     "form": "jsonl",
+     "variables": 6,
+     "tokens": 1689
+    },
+    {
+     "path": "shards/subject/14-religious-and-spiritual-activities.txt",
+     "form": "txt",
+     "variables": 6,
+     "tokens": 433
+    }
+   ]
+  },
+  {
+   "kind": "subject",
+   "title": "Subject: 15 Volunteer Activities",
+   "basis": "the publisher's subject list, from atus-0325-lexicon",
+   "full_records": [
+    "metadata/releases/2003-2025/summary/variables.jsonl"
+   ],
+   "completeness": "complete",
+   "filter": {
+    "subject": "15 Volunteer Activities"
+   },
+   "releases": [
+    "2003-2025"
+   ],
+   "n_in_scope": 641,
+   "rule_versions": {},
+   "notes": [],
+   "count": 24,
+   "files": [
+    {
+     "path": "shards/subject/15-volunteer-activities.jsonl",
+     "form": "jsonl",
+     "variables": 24,
+     "tokens": 6063
+    },
+    {
+     "path": "shards/subject/15-volunteer-activities.txt",
+     "form": "txt",
+     "variables": 24,
+     "tokens": 1186
+    }
+   ]
+  },
+  {
+   "kind": "subject",
+   "title": "Subject: 16 Telephone Calls",
+   "basis": "the publisher's subject list, from atus-0325-lexicon",
+   "full_records": [
+    "metadata/releases/2003-2025/summary/variables.jsonl"
+   ],
+   "completeness": "complete",
+   "filter": {
+    "subject": "16 Telephone Calls"
+   },
+   "releases": [
+    "2003-2025"
+   ],
+   "n_in_scope": 641,
+   "rule_versions": {},
+   "notes": [],
+   "count": 9,
+   "files": [
+    {
+     "path": "shards/subject/16-telephone-calls.jsonl",
+     "form": "jsonl",
+     "variables": 9,
+     "tokens": 2403
+    },
+    {
+     "path": "shards/subject/16-telephone-calls.txt",
+     "form": "txt",
+     "variables": 9,
+     "tokens": 584
+    }
+   ]
+  },
+  {
+   "kind": "subject",
+   "title": "Subject: 18 Traveling",
+   "basis": "the publisher's subject list, from atus-0325-lexicon",
+   "full_records": [
+    "metadata/releases/2003-2025/summary/variables.jsonl"
+   ],
+   "completeness": "complete",
+   "filter": {
+    "subject": "18 Traveling"
+   },
+   "releases": [
+    "2003-2025"
+   ],
+   "n_in_scope": 641,
+   "rule_versions": {},
+   "notes": [],
+   "count": 53,
+   "files": [
+    {
+     "path": "shards/subject/18-traveling.jsonl",
+     "form": "jsonl",
+     "variables": 53,
+     "tokens": 14288
+    },
+    {
+     "path": "shards/subject/18-traveling.txt",
+     "form": "txt",
+     "variables": 53,
+     "tokens": 3501
+    }
+   ]
+  },
+  {
+   "kind": "subject",
+   "title": "Subject: 50 Data Codes",
+   "basis": "the publisher's subject list, from atus-0325-lexicon",
+   "full_records": [
+    "metadata/releases/2003-2025/summary/variables.jsonl"
+   ],
+   "completeness": "complete",
+   "filter": {
+    "subject": "50 Data Codes"
+   },
+   "releases": [
+    "2003-2025"
+   ],
+   "n_in_scope": 641,
+   "rule_versions": {},
+   "notes": [],
+   "count": 7,
+   "files": [
+    {
+     "path": "shards/subject/50-data-codes.jsonl",
+     "form": "jsonl",
+     "variables": 7,
+     "tokens": 1859
+    },
+    {
+     "path": "shards/subject/50-data-codes.txt",
+     "form": "txt",
+     "variables": 7,
+     "tokens": 445
+    }
+   ]
+  }
+ ]
+}
