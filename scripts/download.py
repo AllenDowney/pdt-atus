@@ -6,7 +6,7 @@
 
 Read the publisher's terms before downloading:
 
-    https://www.bls.gov/bls/linksite.htm
+    https://www.bls.gov/bls/blsterms.htm
 
 The script won't fetch anything until you pass --accept-terms. PDF codebooks are
 converted with `pdftotext -layout` (poppler-utils). Sources with

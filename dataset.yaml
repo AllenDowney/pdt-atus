@@ -13,7 +13,7 @@ description: "BLS\u0027s survey of how Americans aged 15 and over spend their ti
 # to ship or build-only and fill reviewed_by and reviewed_on. `unknown` blocks
 # shipping anything that depends on it.
 terms:
-  url: "https://www.bls.gov/bls/linksite.htm"
+  url: "https://www.bls.gov/bls/blsterms.htm"
   summary: Not yet reviewed.
   data: unknown
   documentation: unknown

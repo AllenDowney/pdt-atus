@@ -17,6 +17,6 @@ source_id: atus-0323-respondent
 source_kind: data
 source_url: https://www.bls.gov/tus/datafiles/atusresp-0323.zip
 standard_version: '0.1'
-terms_url: https://www.bls.gov/bls/linksite.htm
+terms_url: https://www.bls.gov/bls/blsterms.htm
 title: American Time Use Survey (ATUS)
 wave_label: year

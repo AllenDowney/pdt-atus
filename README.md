@@ -12,7 +12,7 @@ BLS's survey of how Americans aged 15 and over spend their time, from a 24-hour 
 
 ## Terms of use
 
-The terms are at https://www.bls.gov/bls/linksite.htm. They haven't been reviewed yet, so nothing built from this repo may ship (STANDARD.md §8). Once a person has decided them, summarize them here; the decision is in [`dataset.yaml`](dataset.yaml).
+The terms are at https://www.bls.gov/bls/blsterms.htm. They haven't been reviewed yet, so nothing built from this repo may ship (STANDARD.md §8). Once a person has decided them, summarize them here; the decision is in [`dataset.yaml`](dataset.yaml).
 
 ## How to get the data
 
