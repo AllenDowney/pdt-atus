@@ -2,7 +2,7 @@
 
 Metadata for the [American Time Use Survey (ATUS)](https://www.bls.gov/tus/), built to the [PublicDataToolkit](https://github.com/AllenDowney/PublicDataToolkit) standard.
 
-**Status:** a slice of BLS's 2003–2025 multi-year files: 641 records in four tables, and the activity coding lexicon as three shared code lists. Built locally; the terms haven't been decided, so nothing here ships yet.
+**Status:** a slice of BLS's 2003–2025 multi-year files: 641 records in four tables, and the activity coding lexicon as three shared code lists. Built locally; the terms are decided (everything ships), but nothing is published yet.
 
 <!-- The sections below are required, in this order (STANDARD.md §2.3; pdt check C11). Replace each placeholder. -->
 
@@ -23,7 +23,11 @@ For estimates, use the weight and replicates in each table's `design` in [`datas
 
 ## Terms of use
 
-The terms haven't been decided, so nothing built from this repo may ship (STANDARD.md §8). BLS says what it publishes is in the public domain and asks to be cited as the source (https://www.bls.gov/opub/copyright-information.htm); [`dataset.yaml`](dataset.yaml) quotes it.
+Allen Downey reviewed the terms on 2026-11-20: the metadata, the documentation and the common-format data ship, with this notice:
+
+> Source: U.S. Bureau of Labor Statistics, American Time Use Survey, 2003-2025 multi-year files. BLS data are in the public domain; BLS asks to be cited as the source.
+
+BLS says what it publishes is in the public domain and asks to be cited as the source (https://www.bls.gov/opub/copyright-information.htm); [`dataset.yaml`](dataset.yaml) quotes it.
 
 ## How to get the data
 
