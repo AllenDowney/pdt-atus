@@ -1,0 +1,22 @@
+# Changes here will be overwritten by Copier; do not edit by hand.
+_commit: v0.1.0
+_src_path: /home/downey/PublicDataToolkit
+citation: ''
+dataset_id: atus
+dataset_url: https://www.bls.gov/tus/
+description: BLS's survey of how Americans aged 15 and over spend their time, from
+    a 24-hour time diary, conducted by the Census Bureau since 2003 with households
+    leaving the Current Population Survey.
+form_label: ''
+publisher_name: U.S. Bureau of Labor Statistics (BLS)
+publisher_url: https://www.bls.gov/
+release_id: 2003-2023
+release_label: ATUS 2003-2023 multi-year microdata files
+source_format: csv
+source_id: atus-0323-respondent
+source_kind: data
+source_url: https://www.bls.gov/tus/datafiles/atusresp-0323.zip
+standard_version: '0.1'
+terms_url: https://www.bls.gov/bls/linksite.htm
+title: American Time Use Survey (ATUS)
+wave_label: year
